@@ -1,0 +1,157 @@
+@import "_vars.scss";
+@import "_mixins.scss";
+
+.footer {
+
+  &__left {
+    grid-column: span 2;
+  }
+
+  &__top {
+    padding: 26px 0 18px;
+    background-color: $md-grey;
+  }
+
+  &__logo {
+    display: block;
+    margin-bottom: 29px;
+  }
+
+  &__nav {
+    grid-column: 5 / span 8;
+    @include space-between;
+
+
+    &__nav:last-child {
+      margin-right: 15px;
+    }
+  }
+
+  &__social-list {
+    display: flex;
+
+    &-item:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    &-link,
+    &-icon {
+      width: 39px;
+      height: 39px;
+      align-items: center;
+    }
+
+    &-link {
+
+      display: inline-block;
+      transition: background 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+      &:hover {
+        stroke: $purple-color;
+      }
+
+      &:focus-visible {
+        background-color: $purple-focus;
+
+        .footer__social-list-icon {
+          fill: $white-color;
+        }
+      }
+    }
+
+    &-icon {
+      fill: $white-color;
+      transition: fill 0.2s ease-in;
+
+      &:hover {
+        fill: $purple-color;
+      }
+
+      &:active {
+        fill: $purple-active;
+      }
+    }
+  }
+
+  &__list-subheading {
+    margin: 6px 2px 11px;
+    font-family: 'Open-Sans';
+    font-size: $prime-font-size;
+    line-height: $prime-line-height;
+    font-weight: 400;
+  }
+
+  &__list-link {
+    font-family: 'Open-Sans';
+    font-size: $middle-font-size;
+    line-height: $prime-line-height;
+    color: $grey-color;
+    transition: color 0.2s ease-in, background 0.2s ease-in;
+
+    &.focus-visible {
+      background: $pink-violet;
+      color: $purple-active;
+    }
+
+    &:hover {
+      color: $purple-color;
+    }
+
+    &:active {
+      color: $purple-active;
+    }
+  }
+
+  &__bottom {
+    @include center;
+  }
+
+  &__copyright {
+    font-family: 'Open-Sans';
+    font-size: $middle-font-size;
+    line-height: 30px;
+    color: $grey-color;
+  }
+}
+
+.icon-link {
+  display: inline-block;
+  padding: 3px;
+  margin: -3px;
+  color: $grey-color;
+  text-decoration: none;
+  outline: none;
+  outline-offset: 0;
+  overflow: hidden;
+  background: transparent;
+  outline-offset: 0;
+  transition: all 0.2s ease-in-out;
+
+
+  font-size: 0;
+
+  cursor: pointer;
+  &::before,
+  &::after {
+    content: none;
+  }
+  &:hover {
+    color: $purple-color;
+  }
+
+  &:focus-visible:not(:active):hover {
+    color: $purple-color;
+  }
+  &:focus-visible:not(:active) {
+    color: $white-color;
+    background-color: $purple-focus;
+  }
+  &:focus-visible:not(:active)::after,
+  &:focus-visible:not(:active)::before{
+    opacity: 1;
+  }
+
+  &:active {
+    color: $purple-active;
+  }
+}

@@ -1,0 +1,140 @@
+@import "_vars.scss";
+@import "_mixins.scss";
+
+.top-category {
+  padding-top: 68px;
+
+  &__list {
+
+    grid-auto-rows: minmax(511px, auto);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: minmax(511px, auto) minmax(405px, auto);
+
+    &-item {
+      @include column;
+      padding: 27px 27px 27px;
+      grid-column: span 4;
+      border-radius: $radius;
+      background-color: $grey-light;
+      background-repeat: no-repeat;
+      background-position-y: 60%;
+      &_big {
+        grid-column: span 6;
+      }
+    }
+
+    &-type {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 17px;
+
+      &-item {
+        font-family: 'Open-Sans';
+        font-size: $middle-font-size;
+        line-height: $prime-line-height;
+        color: $grey-color;
+
+        &:not(:last-child) {
+          margin-right: 30px;
+        }
+
+        &-link {
+          transition: color 0.2s ease-in, background 0.2s ease-in;
+
+          &:hover {
+            color: $purple-color;
+          }
+
+          &:focus-visible {
+            background: $pink-violet;
+            color: $purple-active;
+          }
+
+          &:active {
+            color: $purple-active;
+          }
+
+        }
+      }
+    }
+  }
+
+  &__link-mobile {
+    display: none;
+  }
+
+  &__picture {
+    margin-top: 26px;
+  }
+
+  &__card-subheading {
+    margin-bottom: 0;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 33px;
+
+    &-mobile {
+      @include secondary-font;
+    }
+  }
+}
+
+.category-card__image {
+  margin-left: -30px;
+}
+
+.category__btn-next {
+  width: 22px;
+  height: 22px;
+  margin-left: 10px;
+}
+
+.in-catalog-link {
+  @include center;
+  align-self: flex-start;
+  position: relative;
+  margin-top: 30px;
+  font-family: 'Open-Sans';
+  font-size: $prime-font-size;
+  line-height: $secondary-line-height;
+  color: $purple-color;
+  font-weight: 700;
+  transition: color 0.2s ease-in;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: calc(100% - 27px);
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  &:hover {
+    &::before {
+      background-color: $purple-color;
+    }
+
+    .small-arrow-icon {
+      stroke: $white-color;
+    }
+  }
+
+  &:focus-visible {
+    &::before {
+      background-color: $purple-focus;
+    }
+  }
+
+  &:active {
+    color: $purple-active;
+
+    &::before {
+      background-color: $purple-active;
+    }
+  }
+}
